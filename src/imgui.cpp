@@ -5129,7 +5129,7 @@ void ImGui::UpdateHoveredWindowAndCaptureFlags()
     io.WantCaptureKeyboard = false;
     if ((io.ConfigFlags & ImGuiConfigFlags_NoKeyboard) == 0)
     {
-        if ((g.ActiveId != 0))
+        if ((g.ActiveId != 0) || (modal_window != NULL))
             io.WantCaptureKeyboard = true;
         else if (io.NavActive && (io.ConfigFlags & ImGuiConfigFlags_NavEnableKeyboard) && io.ConfigNavCaptureKeyboard)
             io.WantCaptureKeyboard = true;
