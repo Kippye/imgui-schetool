@@ -3694,7 +3694,7 @@ void ImGui::TableSaveSettings(ImGuiTable* table)
         // FIXME-TABLE: We don't have logic to easily compare SortOrder to DefaultSortOrder yet so it's always saved when present.
         if (width_or_weight != column->InitStretchWeightOrWidth)
             settings->SaveFlags |= ImGuiTableFlags_Resizable;
-        if (column->DisplayOrder != n)
+        if (column->DisplayOrder != n && (table->Flags & ImGuiTableFlags_NoSavedOrder) == false)
             settings->SaveFlags |= ImGuiTableFlags_Reorderable;
         if (column->SortOrder != -1)
             settings->SaveFlags |= ImGuiTableFlags_Sortable;
